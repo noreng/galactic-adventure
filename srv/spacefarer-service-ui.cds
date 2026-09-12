@@ -45,3 +45,8 @@ annotate service.Spacefarers with @(
     { Value: status }
   ] }
 );
+
+annotate service.Spacefarers with {
+  department @Common.Text: department.name @Common.TextArrangement: #TextOnly;
+  position   @Common.Text: position.title  @Common.TextArrangement: #TextOnly;
+};
