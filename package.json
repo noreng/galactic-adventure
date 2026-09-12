@@ -17,6 +17,14 @@
       "db": {
         "kind": "sqlite",
         "credentials": { "url": "db/galactic.db" }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "alice": { "password": "alice", "roles": ["GalacticAdmin"],  "attr": { "planet": "EARTH" } },
+          "bob":   { "password": "bob",   "roles": ["GalacticViewer"], "attr": { "planet": "EARTH" } },
+          "zorg":  { "password": "zorg",  "roles": ["GalacticAdmin"],  "attr": { "planet": "XENON" } }
+        }
       }
     }
   }
