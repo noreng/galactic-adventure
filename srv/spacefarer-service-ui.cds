@@ -22,5 +22,26 @@ annotate service.Spacefarers with @(
     { Value: wormholeNavigationSkill },
     { Value: spacesuitColor },
     { Value: status }
-  ]
+  ],
+
+  UI.Facets: [
+    { $Type: 'UI.ReferenceFacet', Label: 'General', Target: '@UI.FieldGroup#General' },
+    { $Type: 'UI.ReferenceFacet', Label: 'Progress', Target: '@UI.FieldGroup#Progress' }
+  ],
+
+  UI.FieldGroup #General: { Data: [
+    { Value: name },
+    { Value: email },
+    { Value: originPlanet },
+    { Value: department_ID },
+    { Value: position_ID },
+    { Value: joinedAt }
+  ] },
+
+  UI.FieldGroup #Progress: { Data: [
+    { Value: stardustCollection },
+    { Value: wormholeNavigationSkill },
+    { Value: spacesuitColor },
+    { Value: status }
+  ] }
 );

@@ -18,25 +18,46 @@
     "deviceTypes": { "desktop": true, "tablet": true, "phone": true }
   },
   "sap.ui5": {
+    "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.0",
+      "minUI5Version": "1.151.0",
       "libs": { "sap.m": {}, "sap.ui.core": {}, "sap.fe.templates": {} }
     },
     "models": {
       "": {
         "dataSource": "mainService",
-        "settings": { "synchronizationMode": "None", "operationMode": "Server", "autoExpandSelect": true }
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        },
+        "preload": true
       }
     },
     "routing": {
       "routes": [
-        { "pattern": ":?query:", "name": "SpacefarersList", "target": "SpacefarersList" }
+        { "pattern": ":?query:", "name": "SpacefarersList", "target": "SpacefarersList" },
+        { "pattern": "Spacefarers({key}):?query:", "name": "SpacefarersObjectPage", "target": "SpacefarersObjectPage" }
       ],
       "targets": {
         "SpacefarersList": {
           "type": "Component",
           "id": "SpacefarersList",
           "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Spacefarers",
+              "navigation": {
+                "Spacefarers": { "detail": { "route": "SpacefarersObjectPage" } }
+              }
+            }
+          }
+        },
+        "SpacefarersObjectPage": {
+          "type": "Component",
+          "id": "SpacefarersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": { "entitySet": "Spacefarers" }
           }

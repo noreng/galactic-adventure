@@ -7,6 +7,7 @@ service GalacticSpacefarerService @(path: '/odata/v4/galactic') {
     { grant: 'READ',                              to: 'GalacticViewer', where: 'department.planet = $user.planet' },
     { grant: ['READ','CREATE','UPDATE','DELETE'], to: 'GalacticAdmin',  where: 'department.planet = $user.planet' }
   ]
+  @odata.draft.enabled
   entity Spacefarers as projection on db.Spacefarers;
 
   @readonly

@@ -34,3 +34,12 @@ it'll prompt for username/password (HTTP Basic):
 Checking that `bob` (viewer) can't create/update/delete needs an actual
 write request, which a browser address bar can't send - that one needs a
 REST client (Postman, curl, ...).
+
+## Docs per step
+
+- CDS data modeling (v0.2): https://cap.cloud.sap/docs/guides/domain/
+- CDS service definitions (v0.2/v0.3): https://cap.cloud.sap/docs/guides/services/
+- Authorization, `@requires`/`@restrict` (v0.3): https://cap.cloud.sap/docs/guides/security/authorization
+- Event handlers, `.before`/`.after` (v0.4): https://cap.cloud.sap/docs/node.js/core-services
+- Draft support, `@odata.draft.enabled` (v0.6): https://cap.cloud.sap/docs/node.js/fiori
+- UI5 Flexibility, `flexEnabled` (v0.6): https://ui5.sap.com/#/api/sap.ui.fl
