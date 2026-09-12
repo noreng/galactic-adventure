@@ -35,6 +35,13 @@ Checking that `bob` (viewer) can't create/update/delete needs an actual
 write request, which a browser address bar can't send - that one needs a
 REST client (Postman, curl, ...).
 
+## Notes
+
+- The "welcome email" sent after a spacefarer is created (`srv/spacefarer-service.js`,
+  `after('CREATE', ...)`) is mocked as a server log line, not a real email -
+  no SMTP/mail service is configured for local dev. A real app would call an
+  actual mailer or the SAP BTP Notification Service there instead.
+
 ## Docs per step
 
 - CDS data modeling (v0.2): https://cap.cloud.sap/docs/guides/domain/

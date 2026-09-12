@@ -28,6 +28,8 @@ module.exports = cds.service.impl(async function () {
   });
 
   this.after('CREATE', Spacefarers, async (_result, req) => {
+    // In a real app, this would send an actual email (e.g. via nodemailer
+    // or the SAP BTP Notification Service) to req.data.email.
     cds.log('spacefarers').info(`Welcome aboard, ${req.data.name}!`);
   });
 });
