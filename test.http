@@ -1,0 +1,41 @@
+### anonymous - expect 401
+GET http://localhost:4004/odata/v4/galactic/Spacefarers
+
+### alice (Earth admin) - expect Aria + Kip
+GET http://localhost:4004/odata/v4/galactic/Spacefarers?$select=name
+Authorization: Basic alice alice
+
+### zorg (Xenon admin) - expect Nova only
+GET http://localhost:4004/odata/v4/galactic/Spacefarers?$select=name
+Authorization: Basic zorg zorg
+
+### bob (Earth viewer) create - expect 403
+POST http://localhost:4004/odata/v4/galactic/Spacefarers
+Authorization: Basic bob bob
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "department_ID": "a1000000-0000-4000-8000-000000000001"
+}
+
+### alice create with invalid skill - expect 400
+POST http://localhost:4004/odata/v4/galactic/Spacefarers
+Authorization: Basic alice alice
+Content-Type: application/json
+
+{
+  "name": "Bad Skill",
+  "department_ID": "a1000000-0000-4000-8000-000000000001",
+  "wormholeNavigationSkill": 150
+}
+
+### alice create valid - expect defaults filled in
+POST http://localhost:4004/odata/v4/galactic/Spacefarers
+Authorization: Basic alice alice
+Content-Type: application/json
+
+{
+  "name": "Fresh Recruit",
+  "department_ID": "a1000000-0000-4000-8000-000000000001"
+}
