@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Spacefarer Adventure</title>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #content,
+    .sapUiComponentContainer,
+    .sapMNav,
+    .sapMNavItem,
+    .sapUiView,
+    [id$="-uiarea"] {
+      height: 100% !important;
+    }
+    #galactic-app-root {
+      position: fixed;
+      inset: 0;
+    }
+  </style>
+
+  <script
+    id="sap-ui-bootstrap"
+    src="https://ui5.sap.com/1.120.0/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_horizon"
+    data-sap-ui-resourceroots='{"galactic.spacefarers": "./"}'
+    data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-async="true"
+    data-sap-ui-frameOptions="trusted"
+    data-sap-ui-libs="sap.fe.templates">
+  </script>
+</head>
+<body class="sapUiBody" id="content">
+  <div
+    id="galactic-app-root"
+    data-sap-ui-component
+    data-name="galactic.spacefarers"
+    data-id="container"
+    data-settings='{"id": "galactic.spacefarers"}'
+    style="height: 100%">
+  </div>
+</body>
+</html>
